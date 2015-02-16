@@ -1,5 +1,3 @@
-※ 現在作成中です
-
 Docker Image for [fluent-plugin-geoip](https://github.com/y-ken/fluent-plugin-geoip)
 ====
 
