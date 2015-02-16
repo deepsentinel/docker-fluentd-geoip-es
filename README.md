@@ -16,11 +16,11 @@ iptables が拒否したログから [kibana](https://github.com/elasticsearch/k
 1. イメージを作成 または pull
 2. 設定ファイルを作成
 3. fluentd の実行
+4. Kibana の設定
 
 #### 注意事項
 - ElasticSearch は設定については記述しません
-- iptables の設定についても特に記述しません
-
+- iptables の設定についても特に記述しません（LOG ターゲットを使って出力されていることを想定しています）
 
 ### 1. イメージの作成
 
@@ -48,7 +48,7 @@ $ docker pull yokogawa/fluentd-geoip-es
 ### 3. fluentd の実行
 
 ```console
-$ docker run -d -v /var/log:/rootfs/var/log:ro -v ${PWD}:/work --name="fluentd-geip-es" yokogawa/docker-fluentd-geoip-es -c sample.conf
+$ docker run -d -v /var/log:/rootfs/var/log:ro -v ${PWD}:/work --name="fluentd-geip-es" yokogawa/fluentd-geoip-es -c sample.conf
 ```
 
 **添付の `run` ファイルを利用する場合**
@@ -56,6 +56,10 @@ $ docker run -d -v /var/log:/rootfs/var/log:ro -v ${PWD}:/work --name="fluentd-g
 ```consle
 $ ./run -c sample.conf
 ```
+
+### 4. Kibana の設定
+
+`MAP` Type の Panel を追加し、`country` を target field にしてください。
 
 おまけ
 ----
