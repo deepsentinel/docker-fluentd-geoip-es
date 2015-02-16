@@ -29,13 +29,13 @@ iptables が拒否したログから [kibana](https://github.com/elasticsearch/k
 ```console
 $ git clone https://github.com/yokogawa-k/docker-fluentd-geoip-es.git
 $ cd docker-fluentd-geoip-es
-$ docker build -t yokogawa/docker-fluentd-geoip-es .
+$ docker build -t yokogawa/fluentd-geoip-es .
 ```
 
 **docker pull する場合**
 
 ```console
-$ docker pull yokogawa/docker-fluentd-geoip-es
+$ docker pull yokogawa/fluentd-geoip-es
 ```
 
 ### 2. 設定ファイルを作成
