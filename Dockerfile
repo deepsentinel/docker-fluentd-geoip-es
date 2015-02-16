@@ -9,7 +9,7 @@ RUN apt-get update \
 
 COPY Gemfile /opt/fluentd/
 RUN cd /opt/fluentd \
-    && bundle install 
+    && bundle install
 WORKDIR /opt/geoip
 RUN curl -LO http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz \
     && gzip -vd GeoLiteCity.dat.gz

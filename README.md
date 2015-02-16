@@ -1,30 +1,30 @@
 ※ 現在作成中です
 
-Docker Image for [fluent-plugin-geoip](https://github.com/y-ken/fluent-plugin-geoip))]
+Docker Image for [fluent-plugin-geoip](https://github.com/y-ken/fluent-plugin-geoip)
 ====
 
 これは何？
 ----
 
-iptables が拒否したログを元に [kibana](https://github.com/elasticsearch/kibana) でアクセス元MAP を作るための fluentd が入った docker image です。
+iptables が拒否したログから [kibana](https://github.com/elasticsearch/kibana) でアクセス元MAP を作るために必要な fluentd と plugin が入った docker image です。
 
-元ネタは [fluentdとKibanaでSSHアクセス元マップ - Qiita](http://qiita.com/hiconyan/items/e847793a291760a7ac1d)
+元ネタは [fluentdとKibanaでSSHアクセス元マップ - Qiita](http://qiita.com/hiconyan/items/e847793a291760a7ac1d) です。
 
 使い方
 ----
 
-1. イメージを作成 または pull 
+1. イメージを作成 または pull
 2. 設定ファイルを作成
 3. fluentd の実行
 
-### ※注意事項
+#### 注意事項
 - ElasticSearch は設定については記述しません
 - iptables の設定についても特に記述しません
 
 
 ### 1. イメージの作成
 
-*build する場合*
+**build する場合**
 
 ```console
 $ git clone https://github.com/yokogawa-k/docker-fluentd-geoip-es.git
@@ -32,7 +32,7 @@ $ cd docker-fluentd-geoip-es
 $ docker build -t yokogawa/docker-fluentd-geoip-es .
 ```
 
-*docker pull する場合*
+**docker pull する場合**
 
 ```console
 $ docker pull yokogawa/docker-fluentd-geoip-es
@@ -51,7 +51,7 @@ $ docker pull yokogawa/docker-fluentd-geoip-es
 $ docker run -d -v /var/log:/rootfs/var/log:ro -v ${PWD}:/work --name="fluentd-geip-es" yokogawa/docker-fluentd-geoip-es -c sample.conf
 ```
 
-*添付の `run` ファイルを利用する場合*
+**添付の `run` ファイルを利用する場合**
 
 ```consle
 $ ./run -c sample.conf
